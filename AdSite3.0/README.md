@@ -1,6 +1,4 @@
-# Welcome to Neurony Test
 
-In this test, you will have to fulfill several tasks, by fully respecting the requirements and restrictions.
 
 # Description
 

@@ -11,7 +11,7 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 
 ### Authentication
 
-* Users can login and create an account.
+* Users can login and create an account. x
 * Create a page for users to check all his bought items.
 
 ### Ads management

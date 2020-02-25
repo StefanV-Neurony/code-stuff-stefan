@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Currently available ads</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,17 @@
                         </div>
                     @endif
 
-                    You are logged in!
+
+                   @foreach($ads as $colectieads)
+                            <div class="w3-panel w3-pale-green"> Titlu ad:{{$colectieads->title}} <br>
+                                Item: {{$colectieads->items->name}}<br> @auth<button class="w3-circle w3-tiny">+</button>@endauth</div>
+
+
+                       @endforeach
+
+
+
+
                 </div>
             </div>
         </div>

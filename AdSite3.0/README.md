@@ -6,8 +6,8 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 
 ### Homepage
 
-* In homepage, you will display only available ads.
-* Only authenticated users can interact with the ads (buy).
+* In homepage, you will display only available ads.- almost finished
+* Only authenticated users can interact with the ads (buy).x
 
 ### Authentication
 

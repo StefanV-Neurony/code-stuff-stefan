@@ -6,13 +6,13 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 
 ### Homepage
 
-* In homepage, you will display only available ads. X
-* Only authenticated users can interact with the ads (buy). X
+* In homepage, you will display only available ads. 
+* Only authenticated users can interact with the ads (buy). 
 
 ### Authentication
 
-* Users can login and create an account. x
-* Create a page for users to check all his bought items. wip rn
+* Users can login and create an account. 
+* Create a page for users to check all his bought items. 
 ### Ads management
 
 * Page for current user to see all his ads.

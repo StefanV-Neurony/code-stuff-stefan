@@ -12,13 +12,13 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 ### Authentication
 
 * Users can login and create an account. X
-* Create a page for users to check all his bought items. wip
+* Create a page for users to check all his bought items. ui done, working on backend
 
 ### Ads management
 
 * Page for current user to see all his ads. X 
 * An ad can be active or sold. X
-* Make a form so that an user can create or edit an ad.
+* Make a form so that an user can create or edit an ad. ui done, backend work needed
 
 ### Notifications
 

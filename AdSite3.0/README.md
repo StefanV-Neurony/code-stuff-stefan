@@ -6,18 +6,18 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 
 ### Homepage
 
-* In homepage, you will display only available ads.- almost finished
-* Only authenticated users can interact with the ads (buy).x
+* In homepage, you will display only available ads.X
+* Only authenticated users can interact with the ads (buy).X
 
 ### Authentication
 
-* Users can login and create an account.
-* Create a page for users to check all his bought items.
+* Users can login and create an account. X
+* Create a page for users to check all his bought items. 
 
 ### Ads management
 
-* Page for current user to see all his ads.
-* An ad can be active or sold.
+* Page for current user to see all his ads. wip rn
+* An ad can be active or sold. X
 * Make a form so that an user can create or edit an ad.
 
 ### Notifications
@@ -33,4 +33,4 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 ### Other requirements
 
 * Use input validations for each input.
-* Use migrations in order to create the database.
+* Use migrations in order to create the database. X

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Items;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ItemsController extends Controller
 {
@@ -81,5 +82,10 @@ class ItemsController extends Controller
     public function destroy(Items $items)
     {
         //
+    }
+
+    public function displaybought(Items $items)
+    {
+        return view('ads.boughtitems');
     }
 }

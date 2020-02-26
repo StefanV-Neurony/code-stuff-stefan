@@ -19,7 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+        </script>
 </head>
 <body>
     <div id="app">
@@ -37,7 +40,11 @@
                     <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     @auth
-                    <a class="nav-link" href="{{route('ads.myads')}}">{{__('Your ads - wip dont click')}}</a>
+                    <a class="nav-link" href="{{route('ads.myads')}}">{{__('Your ads ')}}</a>
+                </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{route('ads.boughtitems')}}">{{__('Your items - wip dont click')}}</a>
+
                         @endauth
 
                 </li>
@@ -65,7 +72,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/home"
                                        >
-                                        {{ __('Dashboard') }}
+                                        {{ __('Home') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

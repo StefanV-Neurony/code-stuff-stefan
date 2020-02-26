@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Advertisements;
+use DemeterChain\A;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AdvertisementsController extends Controller
@@ -14,12 +16,10 @@ class AdvertisementsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $ads=Advertisements::with('items')->get();
+    {   $ads = Advertisements::where('valid','1')->get();
 
         return view('home')->with([
             'ads' => $ads,
-
 
 
 
@@ -34,7 +34,7 @@ class AdvertisementsController extends Controller
      */
     public function create()
     {
-        //
+        return view('ads.create');
     }
 
     /**
@@ -45,7 +45,16 @@ class AdvertisementsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$advertisement = Advertisements::with('items')->get();
+
+        //input method is used to get the value of input with its
+        //name specified
+        $advertisement->title = $request->input('title');
+        $advertisement-= $request->input('body');
+        $advertisement-> = $request->input('department');
+        $employee->phone = $request->input('phone');
+        $employee->save(); //persist the data
+*/
     }
 
     /**
@@ -55,15 +64,9 @@ class AdvertisementsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Advertisements $advertisements)
-    {    $ads=Advertisements::with('items')->where()
-
-        return view('ads.myads')->with([
-            'ads' => $ads,
+    {
 
 
-
-
-        ]);
     }
 
     /**
@@ -98,5 +101,19 @@ class AdvertisementsController extends Controller
     public function destroy(Advertisements $advertisements)
     {
         //
+    }
+
+    public function displaypersonal(Advertisements $advertisements)
+    {   $id = Auth::id();
+        $yourads = Advertisements::where('user_id',$id)->get();
+        return view('ads.myads')->with([
+            'yourads' => $yourads,
+
+
+
+
+        ]);
+
+
     }
 }

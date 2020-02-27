@@ -18,7 +18,7 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 
 * Page for current user to see all his ads. X 
 * An ad can be active or sold. X
-* Make a form so that an user can create or edit an ad. ui done, backend work needed
+* Make a form so that an user can create or edit an ad. ui done, backend work needed (create works now)
 
 ### Notifications
 

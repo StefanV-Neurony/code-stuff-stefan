@@ -8,7 +8,7 @@ class Advertisements extends Model
 {
 
         protected $fillable = [
-            'title', 'body','valid',
+            'user_id','title','body','valid',
             ];
         public function user()
         {

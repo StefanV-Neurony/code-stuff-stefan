@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Advertisements;
+use App\Items;
 use DemeterChain\A;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,7 @@ class AdvertisementsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $ads = Advertisements::where('valid','1')->get();
+    {   $ads = Advertisements::with('items')->where('valid','1')->get();
 
         return view('home')->with([
             'ads' => $ads,
@@ -34,7 +35,7 @@ class AdvertisementsController extends Controller
      */
     public function create()
     {
-        return view('ads.create');
+        return redirect()->route('ads.myads');
     }
 
     /**
@@ -45,16 +46,24 @@ class AdvertisementsController extends Controller
      */
     public function store(Request $request)
     {
-        /*$advertisement = Advertisements::with('items')->get();
 
-        //input method is used to get the value of input with its
-        //name specified
-        $advertisement->title = $request->input('title');
-        $advertisement-= $request->input('body');
-        $advertisement-> = $request->input('department');
-        $employee->phone = $request->input('phone');
-        $employee->save(); //persist the data
-*/
+        $newad = Advertisements::create([
+            'user_id'=>Auth::id(),
+            'body'=>$request->input('body'),
+            'title'=>$request->input('title'),
+        ]);
+
+
+        $newitem = new Items([
+            'name'=>$request->input('items'),
+            'price'=>$request->input('price'),
+
+        ]);
+
+
+       $newad->items()->save($newitem); //persist the data
+        return redirect()->route('ads.myads');
+
     }
 
     /**
@@ -77,7 +86,9 @@ class AdvertisementsController extends Controller
      */
     public function edit(Advertisements $advertisements)
     {
-        //
+
+
+
     }
 
     /**

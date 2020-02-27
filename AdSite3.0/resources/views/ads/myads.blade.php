@@ -31,7 +31,7 @@
 
 
                         @endforeach
-                            <a href="{{route('ads.create')}}">  <button class="w3-button w3-green w3-xl">Create Ad</button></a>
+                             <button onclick="document.getElementById('createmodal').style.display='block'" class="w3-button w3-green w3-xl">Create Ad</button>
 </div>
 
 
@@ -41,6 +41,15 @@
         </div>
 
 
+    <div id="createmodal" class="w3-modal w3-animate-zoom">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+
+                <span onclick="document.getElementById('createmodal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <p> @include('ads.create')</p>
+            </div>
+        </div>
+    </div>
 
 
 

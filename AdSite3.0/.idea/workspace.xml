@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aed1e195-c5e9-4073-9d2a-0aaaaf353e8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/ads/boughtitems.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ads/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ads/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Advertisements.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Advertisements.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdvertisementsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdvertisementsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Items.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Items.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084328_create_advertisements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084328_create_advertisements_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ads/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ads/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ads/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ads/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ads/myads.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ads/myads.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +197,8 @@
       <option name="presentableId" value="Default" />
       <updated>1582554303396</updated>
       <workItem from="1582554308943" duration="2241000" />
-      <workItem from="1582615694828" duration="28762000" />
+      <workItem from="1582615694828" duration="33446000" />
+      <workItem from="1582786406976" duration="5248000" />
     </task>
     <servers />
   </component>
@@ -208,25 +209,18 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1600" y="428" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582787792089">
+      <screen x="-2560" y="0" width="2560" height="1400" />
+    </state>
+    <state x="-1600" y="428" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1582787792089" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1582555306504">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/-2560.0.2560.1400@0.0.1920.1040" timestamp="1582555306504" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582716962066">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582792035630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1729" y="303" width="896" height="913" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1582642077014" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1400@0.0.1920.1040" timestamp="1582716962066" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/ads/create.blade.php</url>
-          <line>2</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="-1729" y="303" width="896" height="913" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1582788974474" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1400@0.0.1920.1040" timestamp="1582792035630" />
   </component>
 </project>

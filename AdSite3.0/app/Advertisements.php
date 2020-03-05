@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Advertisements extends Model
 {
 
-        protected $fillable = [
+        public $fillable = [
             'user_id','title','body','valid',
             ];
         public function user()

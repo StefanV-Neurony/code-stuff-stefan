@@ -15,10 +15,9 @@ Route::redirect('/','home');
 Route::get('/home','AdvertisementsController@index')->name('home');
 Route::get('/myads','AdvertisementsController@displaypersonal')->middleware('auth')->name('ads.myads');
 Route::get('/myitems','ItemsController@displaybought')->middleware('auth')->name('ads.boughtitems');
-Route::get('/ads/{id}/edit','AdvertisementsController@edit')->middleware('auth')->name('ads.edit');
-Route::get('/ads/{id}/delete','AdvertisementsController@destroy')->middleware('auth')->name('ads.destroy');
-Route::get('/create','AdvertisementsController@create')->middleware('auth')->name('ads.create');
-Route::post('/create','AdvertisementsController@store')->middleware('auth')->name('ads.store');
-Route::post('/ads/update','AdvertisementsController@update')->middleware('auth')->name('ads.update');
-
+Route::get('ads/create','AdvertisementsController@create')->middleware('auth')->name('ads.create');
+Route::get('/ads/edit/{id}','AdvertisementsController@edit')->middleware('auth')->name('ads.edit');
+Route::post('ads/update/{id}','AdvertisementsController@update')->middleware('auth')->name('ads.update');
+Route::post('ads/store','AdvertisementsController@store')->middleware('auth')->name('ads.store');
+Route::delete('/delete/{id}','AdvertisementsController@destroy')->middleware('auth')->name('ads.destroy');
 Auth::routes();

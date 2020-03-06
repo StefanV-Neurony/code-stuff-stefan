@@ -12,13 +12,12 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 ### Authentication
 
 * Users can login and create an account. X
-* Create a page for users to check all his bought items. ui done, working on backend
-
+* Create a page for users to check all his bought items. x
 ### Ads management
 
 * Page for current user to see all his ads. X 
 * An ad can be active or sold. X
-* Make a form so that an user can create or edit an ad. ui done, backend work needed (create works now)
+* Make a form so that an user can create or edit an ad. ui done, backend work needed (create works now)x
 
 ### Notifications
 
@@ -27,10 +26,10 @@ Create an app, using Laravel and JavaScript (or any frontend framework), that al
 
 ### API
 
-* Every action that implies ads management needs to be done through an API.
-* Use JavaScript to make requests to the API for every need (display ads, create ads, edit ads, buy ads).
+* Every action that implies ads management needs to be done through an API.x
+* Use JavaScript to make requests to the API for every need (display ads, create ads, edit ads, buy ads).x
 
 ### Other requirements
 
-* Use input validations for each input.
+* Use input validations for each input.x
 * Use migrations in order to create the database. X

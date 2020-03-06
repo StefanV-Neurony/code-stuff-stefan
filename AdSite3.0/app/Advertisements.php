@@ -21,7 +21,7 @@ class Advertisements extends Model
         }
         public function getEditDataAttribute()
         {
-            $data = $this->only(['id','title','body','valid']);
+            $data = $this->only(['id','title','body','valid','user_id']);
             $data['item']=[
                 'name'=>$this->items->name,
                 'price'=>$this->items->price,

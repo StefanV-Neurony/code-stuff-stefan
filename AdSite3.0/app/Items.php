@@ -8,7 +8,7 @@ class Items extends Model
 {
 
     public $fillable = [
-        'advertisements_id','name','details','image','price',
+        'advertisements_id','name','details','image','price'
 
         ];
 

@@ -52743,36 +52743,32 @@ $(document).ready(function () {
       valid = 1;
     }
 
-    if (title != "" && items != "" && body != "" && price != "") {
-      $.ajax({
-        url: "ads/store",
-        type: "POST",
-        data: {
-          type: 1,
-          title: title,
-          items: items,
-          body: body,
-          price: price,
-          valid: valid
-        },
-        cache: false,
-        success: function success(dataResult) {
-          $('#createModal').modal('hide');
-          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
-            title: 'Ad Created!',
-            text: 'Your advertisement has created successfully. Click ok will redirect you to your ads.',
-            icon: 'success'
-          }).then(function (result) {
-            if (result.value) {
-              window.location = '/myads';
-            }
-          });
-        }
-      });
-      e.stopImmediatePropagation();
-    } else {
-      alert('Please fill all the field !');
-    }
+    $.ajax({
+      url: "ads/store",
+      type: "POST",
+      data: {
+        type: 1,
+        title: title,
+        items: items,
+        body: body,
+        price: price,
+        valid: valid
+      },
+      cache: false,
+      success: function success(dataResult) {
+        $('#createModal').modal('hide');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+          title: 'Ad Created!',
+          text: 'Your advertisement has created successfully. Click ok will redirect you to your ads.',
+          icon: 'success'
+        }).then(function (result) {
+          if (result.value) {
+            window.location = '/myads';
+          }
+        });
+      }
+    });
+    e.stopImmediatePropagation();
   });
   $('.deleteAd').click(function (e) {
     if (!confirm("Are you sure you want to delete this advertisement?")) {
@@ -52844,6 +52840,31 @@ $(document).ready(function () {
           });
         }
       });
+    });
+  });
+  $('.purchaseAd').click(function () {
+    var data = jQuery.parseJSON($(this).attr('data-edit'));
+    var id = data.id;
+    var valid = 0;
+    $.ajax({
+      url: "ads/update/" + id,
+      type: "POST",
+      data: {
+        type: 1,
+        valid: valid
+      },
+      cache: false,
+      success: function success(dataResult) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+          title: 'Ad bought!',
+          text: 'bravo coaie',
+          icon: 'success'
+        }).then(function (result) {
+          if (result.value) {
+            window.location = '/home';
+          }
+        });
+      }
     });
   });
 });

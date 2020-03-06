@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Advertisements;
 use App\Items;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ItemsController extends Controller
@@ -86,7 +88,14 @@ class ItemsController extends Controller
     }
 
     public function displaybought(Items $items)
-    {
-        return view('ads.boughtitems');
+    {   $id = Auth::id();
+        $youritems = Advertisements::with('items')->where('user_id',$id)->get();
+        return view('ads.boughtitems')->with([
+            'youritems' => $youritems,
+
+
+
+
+        ]);
     }
 }

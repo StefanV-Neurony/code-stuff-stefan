@@ -15,7 +15,23 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+                            @foreach($youritems as $colectieitems)
 
+                                <div class="w3-panel w3-pale-green">
+
+                                  Nume Item: {{$colectieitems->items->name}} <br>
+                                    Pret: {{$colectieitems->items->price}}
+
+
+
+
+
+
+
+
+                                </div>
+
+                            @endforeach
 
 
 

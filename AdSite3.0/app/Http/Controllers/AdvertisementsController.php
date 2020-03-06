@@ -47,7 +47,13 @@ class AdvertisementsController extends Controller
      */
     public function store(Request $request)
     {
-
+        $validator= $request->validate([
+            'body'=>'required|max:255',
+            'title'=>'required',
+            'valid'=>'required',
+            'items.name'=>'required',
+            'items.price'=>'required',
+        ]);
         $newad = Advertisements::create([
             'user_id'=>Auth::id(),
             'body'=>$request->input('body'),
@@ -110,13 +116,14 @@ class AdvertisementsController extends Controller
      */
     public function update(Request $request,$id)
     {
-//        $advertisement = Advertisements::with('items')->find($id);
-//        $advertisement->title=$request->input('title');
-//        $advertisement->body=$request->input('body');
-//        $advertisement->items->name=$request->input('name');
-//        $advertisement->items->price=$request->input('price');
-//        $advertisement->save();
-//        echo $advertisement;
+         $validator= $request->validate([
+            'body'=>'required|max:255',
+            'title'=>'required',
+            'valid'=>'required',
+            'items.name'=>'required',
+            'items.price'=>'required',
+        ]);
+
         $advertisement = Advertisements::with('items')->find($id);
         $advertisement->title=$request->input('title');
         $advertisement->body=$request->input('body');

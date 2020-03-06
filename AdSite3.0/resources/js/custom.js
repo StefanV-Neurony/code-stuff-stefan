@@ -23,7 +23,7 @@ $(document).ready(function () {
         if ($('#validCheck').is(':checked')) {
             valid = 1;
         }
-        if (title != "" && items != "" && body != "" && price != "") {
+
 
 
             $.ajax({
@@ -56,9 +56,7 @@ $(document).ready(function () {
                 }
             });
             e.stopImmediatePropagation();
-        } else {
-            alert('Please fill all the field !');
-        }
+
     });
 
     $('.deleteAd').click(function (e) {
@@ -153,4 +151,46 @@ $(document).ready(function () {
 
         });
     });
+    $('.purchaseAd').click(function(){
+        var data = jQuery.parseJSON($(this).attr('data-edit'));
+var id =data.id;
+
+
+
+        var valid=0;
+        $.ajax ({
+            url: "ads/update/"+id,
+            type: "POST",
+            data: {
+
+                type: 1,
+                valid:valid,
+
+            },
+            cache: false,
+            success: function (dataResult) {
+
+                Swal.fire({
+                    title: 'Ad bought!',
+                    text: 'bravo coaie',
+                    icon: 'success',
+                }).then((result) => {
+                    if (result.value) {
+                        window.location = '/home';
+                    }
+                }
+
+                )
+
+
+            }
+
+        });
+
+    });
+
+
+
+
+
 });

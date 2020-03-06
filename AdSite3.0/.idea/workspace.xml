@@ -2,127 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aed1e195-c5e9-4073-9d2a-0aaaaf353e8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/scripts.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/.idea/testjson.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/app/Http/Controllers/ModController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/app/Mod.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/1haxe.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/1hmace.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/1hsword.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/2haxe.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/2hmace.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/2hsword.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/amulets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/belt.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/bow.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/claw.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/cobaltjewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/convokingwand.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/crimsonjewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/criticalutilityflask.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dagger.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexba.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexboots.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexhelm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexheml.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexintba.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexintboots.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexinthelm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexintshield.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/dexshield.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/fishingrod.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/ghastlyeyejewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/glovesdex.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/hybridflask.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/hypnoticeyejewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/intba.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/intboots.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/intgloves.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/inthelm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/intshield.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/lifeflask.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/lowtiermap.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/manaflask.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/midtiermap.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/mods.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/murderouseyejewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/prismaticjewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/quiver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/rings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/runedagger.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/sceptre.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/searchingeyejewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/staff.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/stat_translations.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strba.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strboots.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strdexba.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strdexboots.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strdexgloves.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strdexhelm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strdexintba.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strdexshield.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strgloves.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strhelm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strintba.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strintboots.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strinthelm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strintshield.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/strshield.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/thrust1h.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/timelessjewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/toptiermap.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/unsetring.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/utilityflask.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/viridianjewel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/wand.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/all_affix/warstaff.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/data/mods.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/factories/ModFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/migrations/2020_03_02_072903_create_mods_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/database/seeds/ModSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/public/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/resources/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/resources/views/main.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testjson/resources/views/main2.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Advertisements.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Advertisements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdvertisementsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdvertisementsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AdvertisementsFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AdvertisementsFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ItemsFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ItemsFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/custom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ads/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ads/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ads/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ads/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ads/myads.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ads/myads.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CreatesApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,12 +171,12 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\code\AdSite3.0\resources\views\ads" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\code\AdSite3.0\resources\views\ads" />
       <recent name="C:\code\AdSite3.0\resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\code\AdSite3.0\resources\views\ads" />
     </key>
   </component>
   <component name="RunManager">
@@ -315,6 +203,7 @@
       <workItem from="1583135501504" duration="1382000" />
       <workItem from="1583309795074" duration="20272000" />
       <workItem from="1583393621529" duration="23489000" />
+      <workItem from="1583483689681" duration="12556000" />
     </task>
     <servers />
   </component>
@@ -354,10 +243,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-2560.0.2560.1400@0.0.1920.1040" timestamp="1583323654886" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583411286277">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583500113485">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1729" y="303" width="896" height="913" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1583318056194" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1400@0.0.1920.1040" timestamp="1583411286277" />
+    <state x="-1729" y="303" width="896" height="913" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1583484673654" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1400@0.0.1920.1040" timestamp="1583500113485" />
   </component>
 </project>

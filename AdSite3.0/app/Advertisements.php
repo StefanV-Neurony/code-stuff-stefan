@@ -17,6 +17,18 @@ class Advertisements extends Model
 
         public function items()
         {
-           return $this->hasOne('App\Items');
+            return $this->hasOne('App\Items');
         }
+        public function getEditDataAttribute()
+        {
+            $data = $this->only(['id','title','body','valid']);
+            $data['item']=[
+                'name'=>$this->items->name,
+                'price'=>$this->items->price,
+            ];
+
+            return $data;
+        }
+
+
 }

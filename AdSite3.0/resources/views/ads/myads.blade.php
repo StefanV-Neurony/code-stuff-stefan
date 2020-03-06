@@ -28,12 +28,10 @@
                                 <br>
 
 
-                                <a  data-target="editModal" data-toggle="modal" data-title="{{$colectieads->title}}" class="btn btn-sm btn-outline-success py-0 openEditModal"  data-id="{{$colectieads->id}}">Edit</a>
+                                <a  class="btn btn-sm btn-outline-success py-0 openEditModal"   data-edit="{{json_encode($colectieads->edit_data)}}">Edit</a>
                                 <a href="{{route('ads.destroy',$colectieads->id)}}" class="btn btn-sm btn-outline-danger py-0 deleteAd"  data-id="{{$colectieads->id}}">Delete</a>
 
-{{--                                <div class="modal fade editModal">@include('ads.edit',['ads'=>$yourads])--}}
 
-{{--                                </div>--}}
                             </div>
 
                         @endforeach
@@ -45,16 +43,39 @@
         </div>
     </div>
 
-                <div id="createModal" class="modal fade">
-                    <div class="modal-dialog modal-dialog-centered modal-xl">
-                    <div class="modal-content">
-                        <div class="container">
-                            <span id="closeCreateModal">&times;</span>
-                            @include('ads.create')
-                        </div>
-                        </div>
-                    </div>
+    <div class="modal hide fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Create Advertisement</h4>
                 </div>
+                <div class="modal-body">
+                    @include('ads.create')
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hide fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2" aria-hidden="true" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel2">Edit Advertisement</h4>
+                </div>
+                <div class="modal-body">
+                @include('ads.edit')
+                </div>
+                <div class="modal-footer">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 

@@ -2,7 +2,7 @@
         <div class="col-sm-8 offset-sm-2">
 
             <div class="form-group">
-                <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}"></div>
+               {{csrf_field()}}
                 <div class="form-group">
                     <label for="title">Ad title:</label>
                     <input type="text" class="form-control"  id = "title" class="form-control" required>
@@ -37,3 +37,4 @@
         </div>
     </div>
 
+    </div>

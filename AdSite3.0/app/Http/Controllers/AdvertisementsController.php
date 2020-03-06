@@ -110,11 +110,23 @@ class AdvertisementsController extends Controller
      */
     public function update(Request $request,$id)
     {
+//        $advertisement = Advertisements::with('items')->find($id);
+//        $advertisement->title=$request->input('title');
+//        $advertisement->body=$request->input('body');
+//        $advertisement->items->name=$request->input('name');
+//        $advertisement->items->price=$request->input('price');
+//        $advertisement->save();
+//        echo $advertisement;
         $advertisement = Advertisements::with('items')->find($id);
         $advertisement->title=$request->input('title');
         $advertisement->body=$request->input('body');
+        $advertisement->valid=$request->input('valid');
         $advertisement->save();
-        echo $advertisement;
+
+        $advertisement->items()->update([
+            'name'=>$request->input('items'),
+            'price'=>$request->input('price'),
+        ]);
 
 
 

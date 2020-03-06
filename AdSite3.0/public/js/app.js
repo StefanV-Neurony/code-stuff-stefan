@@ -52732,9 +52732,6 @@ $(document).ready(function () {
     e.stopPropagation();
     $('#createModal').modal('show');
   });
-  $('#closeCreateModal').on('click', function () {
-    $('#createModal').modal('hide');
-  });
   $('#saveButton').on("click", function (e) {
     var title = $('#title').val();
     var items = $('#items').val();
@@ -52806,7 +52803,48 @@ $(document).ready(function () {
     return false;
   });
   $('.openEditModal').click(function () {
-    $('.editModal').modal('show');
+    $('#editModal').modal('show');
+    var data = jQuery.parseJSON($(this).attr('data-edit'));
+    console.log(data);
+    $('#titleedit').attr('value', data.title);
+    $('#bodyedit').attr('value', data.body);
+    $('#itemsedit').attr('value', data.item.name);
+    $('#priceedit').attr('value', data.item.price);
+    $('#editID').attr('value', data.id);
+    $('#validCheck').attr('value', data.valid);
+    $('#updateButton').click(function () {
+      var title = $('#titleedit').val();
+      var body = $('#bodyedit').val();
+      var items = $('#itemsedit').val();
+      var price = $('#priceedit').val();
+      var id = data.id;
+      var valid = 1;
+      $.ajax({
+        url: "ads/update/" + id,
+        type: "POST",
+        data: {
+          type: 1,
+          title: title,
+          items: items,
+          body: body,
+          price: price,
+          valid: valid
+        },
+        cache: false,
+        success: function success(dataResult) {
+          $('#editModal').modal('hide');
+          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+            title: 'Ad edited!',
+            text: 'Your advertisement has been edited successfully. Click ok will redirect you to your ads.',
+            icon: 'success'
+          }).then(function (result) {
+            if (result.value) {
+              window.location = '/myads';
+            }
+          });
+        }
+      });
+    });
   });
 });
 

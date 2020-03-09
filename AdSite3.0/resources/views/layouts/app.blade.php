@@ -23,7 +23,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.covam/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/press-2.0.8.css')}}" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -58,7 +58,7 @@
                     <a class="nav-link" href="{{route('ads.myads')}}">{{__('Your ads ')}}</a>
                 </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{route('ads.boughtitems')}}">{{__('Your items - wip dont click')}}</a>
+                        <a class="nav-link" href="{{route('ads.boughtitems')}}">{{__('Your items')}}</a>
 
                         @endauth
 

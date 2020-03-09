@@ -21,15 +21,9 @@
             <label for="">Price:</label>
             <input type="text" class="form-control"  id = "priceedit" class="form-control" value="" required >
         </div>
+            <label>Would you like to make this Ad available?</label>
+            <input type="checkbox" id="publishAd" value="" ><br>
 
-            Would you like to make this ad available/unavailable?
-        <div class="form-check">
-
-            <input class="form-check-input" type="checkbox" value="" id="validCheck">
-            <label class="form-check-label" for="validCheck">
-
-            </label>
-        </div>
 
 
         <button  type = "submit" class = "w3-green w3-button" id="updateButton" >Update</button>
@@ -40,4 +34,4 @@
 
     </div>
 </div>
-
+</div>

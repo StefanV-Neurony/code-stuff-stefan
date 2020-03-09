@@ -52741,7 +52741,7 @@ $(document).ready(function () {
 
     if ($('#validCheck').is(':checked')) {
       valid = 1;
-    }
+    } else valid = 0;
 
     $.ajax({
       url: "ads/store",
@@ -52807,14 +52807,31 @@ $(document).ready(function () {
     $('#itemsedit').attr('value', data.item.name);
     $('#priceedit').attr('value', data.item.price);
     $('#editID').attr('value', data.id);
-    $('#validCheck').attr('value', data.valid);
+    $('#publishAd').attr('value', data.valid);
+
+    if (data.valid == 1) {
+      $('#publishAd').prop('checked', true);
+    } else {
+      $('#publishAd').prop('checked', false);
+      console.log('unchecked');
+    }
+
     $('#updateButton').click(function () {
       var title = $('#titleedit').val();
       var body = $('#bodyedit').val();
       var items = $('#itemsedit').val();
       var price = $('#priceedit').val();
       var id = data.id;
-      var valid = 1;
+      var valid;
+
+      if ($('#publishAd').prop('checked')) {
+        console.log('chungus');
+        valid = 1;
+      } else {
+        valid = 0;
+        console.log('unchungus');
+      }
+
       $.ajax({
         url: "ads/update/" + id,
         type: "POST",
@@ -52844,24 +52861,28 @@ $(document).ready(function () {
   });
   $('.purchaseAd').click(function () {
     var data = jQuery.parseJSON($(this).attr('data-edit'));
+    console.log(data);
     var id = data.id;
-    var valid = 0;
+    var users = jQuery.parseJSON($(this).attr('data-user'));
+    var buyer = users.id;
+    console.log(buyer);
     $.ajax({
-      url: "ads/update/" + id,
+      url: "ads/buy/" + id,
       type: "POST",
       data: {
         type: 1,
-        valid: valid
+        user_id: buyer
       },
       cache: false,
       success: function success(dataResult) {
+        console.log(dataResult);
         sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
-          title: 'Ad bought!',
-          text: 'bravo coaie',
+          title: 'Item bought!',
+          text: 'Your new item has been added to your collection successfully. Clicking ok will redirect you to your items.',
           icon: 'success'
         }).then(function (result) {
           if (result.value) {
-            window.location = '/home';
+            window.location = '/myitems';
           }
         });
       }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Advertisements;
 use App\Items;
+use App\Notifications\ItemBought;
 use DemeterChain\A;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,9 +20,11 @@ class AdvertisementsController extends Controller
      */
     public function index()
     {   $ads = Advertisements::with('items')->where('valid','1')->get();
+        $currentuser = Auth::user();
 
         return view('home')->with([
             'ads' => $ads,
+            'currentuser'=>$currentuser,
 
 
 
@@ -46,15 +49,14 @@ class AdvertisementsController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-        $validator= $request->validate([
-            'body'=>'required|max:255',
-            'title'=>'required',
-            'valid'=>'required',
-            'items.name'=>'required',
-            'items.price'=>'required',
-        ]);
-        $newad = Advertisements::create([
+    {   $validatedData = $request->validate([
+        'body'=>['required','max:255'],
+        'title'=>['required','max:255'],
+        'items'=>['required'],
+        'price'=>['required','numeric'],
+    ]);
+
+          $newad = Advertisements::create([
             'user_id'=>Auth::id(),
             'body'=>$request->input('body'),
             'title'=>$request->input('title'),
@@ -62,7 +64,7 @@ class AdvertisementsController extends Controller
         ]);
 
 
-        $newitem = new Items([
+          $newitem = new Items([
             'name'=>$request->input('items'),
             'price'=>$request->input('price'),
 
@@ -116,12 +118,11 @@ class AdvertisementsController extends Controller
      */
     public function update(Request $request,$id)
     {
-         $validator= $request->validate([
-            'body'=>'required|max:255',
-            'title'=>'required',
-            'valid'=>'required',
-            'items.name'=>'required',
-            'items.price'=>'required',
+        $validatedData = $request->validate([
+            'body'=>['required','max:255'],
+            'title'=>['required','max:255'],
+            'items'=>['required'],
+            'price'=>['required','numeric'],
         ]);
 
         $advertisement = Advertisements::with('items')->find($id);
@@ -167,6 +168,18 @@ class AdvertisementsController extends Controller
 
 
         ]);
+
+
+    }
+
+    public function buy(Request $request,$id)
+    {
+
+
+        $advertisement = Advertisements::with('items')->find($id);
+        $advertisement->user->notify(new ItemBought());
+        $advertisement->user_id=$request->input('user_id');
+        $advertisement->save();
 
 
     }

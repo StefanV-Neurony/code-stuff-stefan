@@ -52721,17 +52721,21 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+// importing sweet alert library
+ //Functions for ads management
 
 $(document).ready(function () {
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
-  });
+  }); //Function to open the create advertisement modal
+
   $('#openCreateModal').on('click', function (e) {
     e.stopPropagation();
     $('#createModal').modal('show');
-  });
+  }); //Function to save the advertisement with the data in the create modal
+
   $('#saveButton').on("click", function (e) {
     var title = $('#title').val();
     var items = $('#items').val();
@@ -52743,6 +52747,7 @@ $(document).ready(function () {
       valid = 1;
     } else valid = 0;
 
+    $(this).attr("disabled", true);
     $.ajax({
       url: "ads/store",
       type: "POST",
@@ -52766,10 +52771,14 @@ $(document).ready(function () {
             window.location = '/myads';
           }
         });
+      },
+      complete: function complete() {
+        $(this).attr("disabled", false);
       }
     });
     e.stopImmediatePropagation();
-  });
+  }); //Function to delete an ad based on id
+
   $('.deleteAd').click(function (e) {
     if (!confirm("Are you sure you want to delete this advertisement?")) {
       return false;
@@ -52778,6 +52787,7 @@ $(document).ready(function () {
     e.preventDefault();
     var id = $(this).data("id");
     var url = e.target;
+    $(this).attr("disabled", true);
     $.ajax({
       url: '/delete/' + id,
       type: 'DELETE',
@@ -52794,14 +52804,17 @@ $(document).ready(function () {
             location.reload(true);
           }
         });
+      },
+      complete: function complete() {
+        $(this).attr("disabled", false);
       }
     });
     return false;
-  });
+  }); //Function to edit modal based on id
+
   $('.openEditModal').click(function () {
     $('#editModal').modal('show');
     var data = jQuery.parseJSON($(this).attr('data-edit'));
-    console.log(data);
     $('#titleedit').attr('value', data.title);
     $('#bodyedit').attr('value', data.body);
     $('#itemsedit').attr('value', data.item.name);
@@ -52813,7 +52826,6 @@ $(document).ready(function () {
       $('#publishAd').prop('checked', true);
     } else {
       $('#publishAd').prop('checked', false);
-      console.log('unchecked');
     }
 
     $('#updateButton').click(function () {
@@ -52825,11 +52837,9 @@ $(document).ready(function () {
       var valid;
 
       if ($('#publishAd').prop('checked')) {
-        console.log('chungus');
         valid = 1;
       } else {
         valid = 0;
-        console.log('unchungus');
       }
 
       $.ajax({
@@ -52858,14 +52868,14 @@ $(document).ready(function () {
         }
       });
     });
-  });
+  }); //Function to purchase an ad by setting the user_id value to the user that click the purchase ad button from the ad creator user_id
+
   $('.purchaseAd').click(function () {
     var data = jQuery.parseJSON($(this).attr('data-edit'));
-    console.log(data);
     var id = data.id;
     var users = jQuery.parseJSON($(this).attr('data-user'));
     var buyer = users.id;
-    console.log(buyer);
+    $(this).attr("disabled", true);
     $.ajax({
       url: "ads/buy/" + id,
       type: "POST",
@@ -52885,6 +52895,9 @@ $(document).ready(function () {
             window.location = '/myitems';
           }
         });
+      },
+      complete: function complete() {
+        $(this).attr("disabled", false);
       }
     });
   });

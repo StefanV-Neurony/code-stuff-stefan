@@ -6,10 +6,12 @@ use App\Advertisements;
 use App\Items;
 use App\Notifications\ItemBought;
 use DemeterChain\A;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class AdvertisementsController extends Controller
 {
@@ -93,7 +95,7 @@ class AdvertisementsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Advertisements $advertisements
-     * @return \Illuminate\Contracts\View\Factory|Response|\Illuminate\View\View
+     * @return Factory|Response|View
      */
     public function edit($id)
     {

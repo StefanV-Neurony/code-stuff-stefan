@@ -1,27 +1,38 @@
-<div class="row mt-5">
-    <div class="col-sm-8 offset-sm-2">
-        <div class="form-group">
-            {{csrf_field()}}
-            <div class="form-group">
-                <label for="title">Ad title:</label>
-                <input type="hidden" id="editID" value="">
-                <input type="text" class="form-control" id="titleedit" class="form-control" value="" required>
+<!-- Starting of ajax contact form -->
+<div class="container">
+    <h2>Edit Advertisement</h2>
+</div>
+<form class="editForm" method="POST">
+    <!-- Starting of successful form message -->
+    <div class="row">
+        <div class="col-12">m
+
+            <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                Your advertisement was  edited successfully
             </div>
-            <div class="form-group">
-                <label for="items">Items:</label>
-                <input type="text" class="form-control" id="itemsedit" class="form-control" value="" required>
-            </div>
-            <div class="form-group">
-                <label for="body">Description:</label>
-                <input type="text" class="form-control" id="bodyedit" class="form-control" value="" required>
-            </div>
-            <div class="form-group">
-                <label for="">Price:</label>
-                <input type="text" class="form-control" id="priceedit" class="form-control" value="" required>
-            </div>
-            <label>Would you like to make this Ad available?</label>
-            <input type="checkbox" id="publishAd" value=""><br>
-            <button type="submit" class="w3-green w3-button" id="updateButton">Update</button>
         </div>
     </div>
-</div>
+    <!-- Ending of successful form message -->
+
+    <!-- Element of the ajax contact form -->
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <input  name="title" type="text" id="editTitle" class="form-control" placeholder="Title" >
+        </div>
+        <div class="col-md-6 form-group">
+            <input name="name" type="text" id="editName" class="form-control" placeholder="Items" >
+        </div>
+        <div class="col-md-6 form-group">
+            <input name="price" id="editPrice" type="text" class="form-control" placeholder="Price" >
+        </div>
+        <div class="col-12 form-group">
+            <input  name="body" class="form-control" id="editBody" type="text" placeholder="Description">
+        </div>
+        <div class="col-12 form-group">
+            <label>Would you like to make this Ad available?</label>
+            <p><input type="checkbox" id="editedPublish" value=""></p></div>
+        <div class="col-12">
+            <button name="update" id="updateButton" class="btn btn-success" value="Edit Advertisement"></button>
+        </div>
+    </div>
+</form>

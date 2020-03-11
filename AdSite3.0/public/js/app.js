@@ -52729,57 +52729,15 @@ $(document).ready(function () {
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
-  }); //Function to open the create advertisement modal
+  }); //Function to open create modal
 
-  $('#openCreateModal').on('click', function (e) {
+  $(document).on('click', '#openCreateModal', function (e) {
     e.stopPropagation();
     $('#createModal').modal('show');
-  }); //Function to save the advertisement with the data in the create modal
-
-  $('#saveButton').on("click", function (e) {
-    var title = $('#title').val();
-    var items = $('#items').val();
-    var body = $('#body').val();
-    var price = $('#price').val();
-    var valid = 0;
-
-    if ($('#validCheck').is(':checked')) {
-      valid = 1;
-    } else valid = 0;
-
+  });
+  $(document).on('click', '.deleteAd', function (e) {
     $(this).attr("disabled", true);
-    $.ajax({
-      url: "ads/store",
-      type: "POST",
-      data: {
-        type: 1,
-        title: title,
-        items: items,
-        body: body,
-        price: price,
-        valid: valid
-      },
-      cache: false,
-      success: function success(dataResult) {
-        $('#createModal').modal('hide');
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
-          title: 'Ad Created!',
-          text: 'Your advertisement has created successfully. Click ok will redirect you to your ads.',
-          icon: 'success'
-        }).then(function (result) {
-          if (result.value) {
-            window.location = '/myads';
-          }
-        });
-      },
-      complete: function complete() {
-        $(this).attr("disabled", false);
-      }
-    });
-    e.stopImmediatePropagation();
-  }); //Function to delete an ad based on id
 
-  $('.deleteAd').click(function (e) {
     if (!confirm("Are you sure you want to delete this advertisement?")) {
       return false;
     }
@@ -52787,14 +52745,10 @@ $(document).ready(function () {
     e.preventDefault();
     var id = $(this).data("id");
     var url = e.target;
-    $(this).attr("disabled", true);
     $.ajax({
-      url: '/delete/' + id,
+      url: 'delete/' + id,
       type: 'DELETE',
-      data: {
-        id: id
-      },
-      success: function success(response) {
+      success: function success(data) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
           title: 'Deleted!',
           text: 'Your advertisement has been deleted, clicking ok will redirect you to the main page',
@@ -52812,47 +52766,44 @@ $(document).ready(function () {
     return false;
   }); //Function to edit modal based on id
 
-  $('.openEditModal').click(function () {
+  $(document).on('click', '.openEditModal', function (e) {
     $('#editModal').modal('show');
-    var data = jQuery.parseJSON($(this).attr('data-edit'));
-    $('#titleedit').attr('value', data.title);
-    $('#bodyedit').attr('value', data.body);
-    $('#itemsedit').attr('value', data.item.name);
-    $('#priceedit').attr('value', data.item.price);
-    $('#editID').attr('value', data.id);
+    var data = $.parseJSON($(this).attr('data-edit'));
+    console.log(data);
+    $('#editTitle').attr('value', data.title);
+    $('#editBody').attr('value', data.body);
+    $('#editName').attr('value', data.item.name);
+    $('#editPrice').attr('value', data.item.price);
     $('#publishAd').attr('value', data.valid);
 
-    if (data.valid == 1) {
+    if (data.valid === 1) {
       $('#publishAd').prop('checked', true);
     } else {
       $('#publishAd').prop('checked', false);
     }
 
-    $('#updateButton').click(function () {
-      var title = $('#titleedit').val();
-      var body = $('#bodyedit').val();
-      var items = $('#itemsedit').val();
-      var price = $('#priceedit').val();
+    $('.editForm').submit(function (e) {
+      e.preventDefault();
       var id = data.id;
-      var valid;
+      var formdata = $(this).serializeArray();
 
-      if ($('#publishAd').prop('checked')) {
-        valid = 1;
+      if ($('#editedPublish').is(':checked')) {
+        formdata.push({
+          name: 'valid',
+          value: 1
+        });
       } else {
-        valid = 0;
+        formdata.push({
+          name: 'valid',
+          value: 0
+        });
       }
 
+      console.log(formdata);
       $.ajax({
-        url: "ads/update/" + id,
+        url: "update/" + id,
         type: "POST",
-        data: {
-          type: 1,
-          title: title,
-          items: items,
-          body: body,
-          price: price,
-          valid: valid
-        },
+        data: formdata,
         cache: false,
         success: function success(dataResult) {
           $('#editModal').modal('hide');
@@ -52862,43 +52813,71 @@ $(document).ready(function () {
             icon: 'success'
           }).then(function (result) {
             if (result.value) {
-              window.location = '/myads';
+              window.location = 'mine';
             }
           });
         }
       });
     });
-  }); //Function to purchase an ad by setting the user_id value to the user that click the purchase ad button from the ad creator user_id
+    e.stopImmediatePropagation();
+  });
+  $('#createForm').submit(function (e) {
+    e.preventDefault();
+    var formdata = $(this).serializeArray();
+    console.log(formdata);
+    var valid = 0;
 
-  $('.purchaseAd').click(function () {
-    var data = jQuery.parseJSON($(this).attr('data-edit'));
-    var id = data.id;
-    var users = jQuery.parseJSON($(this).attr('data-user'));
-    var buyer = users.id;
-    $(this).attr("disabled", true);
+    if ($('#publishAd').is(':checked')) {
+      formdata.push({
+        name: 'valid',
+        value: 1
+      });
+    } else {
+      formdata.push({
+        name: 'valid',
+        value: 0
+      });
+    }
+
     $.ajax({
-      url: "ads/buy/" + id,
+      url: 'store',
       type: "POST",
-      data: {
-        type: 1,
-        user_id: buyer
-      },
+      data: formdata,
       cache: false,
-      success: function success(dataResult) {
-        console.log(dataResult);
+      success: function success(data) {
+        console.log(data);
+        $('#createModal').modal('hide');
         sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
-          title: 'Item bought!',
-          text: 'Your new item has been added to your collection successfully. Clicking ok will redirect you to your items.',
+          title: 'Ad Created!',
+          text: 'Your advertisement has created successfully. Click ok will redirect you to your ads.',
           icon: 'success'
         }).then(function (result) {
           if (result.value) {
-            window.location = '/myitems';
+            window.location = '/ads/mine';
           }
         });
       },
       complete: function complete() {
         $(this).attr("disabled", false);
+      },
+      error: function error(xhr, status, _error) {
+        var errormessage = xhr.status + " :" + xhr.statusText;
+        alert('Error -' + errormessage);
       }
+    });
+    e.stopImmediatePropagation();
+  });
+  $(document).on('click', '.purchaseItem', function (e) {
+    $(this).attr("disabled", true);
+    var data = jQuery.parseJSON($(this).attr('data-edit'));
+    var id = data.id;
+    var users = jQuery.parseJSON($(this).attr('data-user'));
+    var bought_by = users.name;
+    $.ajax({
+      url: "ads/buy/" + id,
+      type: 'POST',
+      data: bought_by,
+      success: function success(data) {}
     });
   });
 });

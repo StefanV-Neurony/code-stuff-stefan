@@ -2,187 +2,115 @@
 
 namespace App\Http\Controllers;
 
-use App\Advertisements;
-use App\Items;
-use App\Notifications\ItemBought;
-use DemeterChain\A;
-use Illuminate\Contracts\View\Factory;
+use App\Advertisement;
+use App\Http\Requests\StoreAdvertisement;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 
 class AdvertisementsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {   $ads = Advertisements::with('items')->where('valid','1')->get();
+    public function index(Advertisement $advertisement)
+    {   $ads = $advertisement->where('valid','1')->get();
         $currentuser = Auth::user();
 
         return view('home')->with([
-            'ads' => $ads,
-            'currentuser'=>$currentuser,
-
-
-
+            'advertisements' => $ads,
+            'currentuser' => $currentuser,
         ]);
-
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+    public function store(StoreAdvertisement $request)
     {
-        return view('ads.create');
+        try {
+            $newad = Advertisement::create([
+                'user_id' => Auth::id(),
+                'body' => $request->input('body'),
+                'title' => $request->input('title'),
+                'valid' => $request->input('valid'),
+            ]);
+            $newad->item()->create([
+                'name' => $request->input('name'),
+                'price' => $request->input('price'),
+            ]);//persist the data
+            return response()->json([
+                'status' => 'success',
+                'url' => route('ads.myads'),
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {   $validatedData = $request->validate([
-        'body'=>['required','max:255'],
-        'title'=>['required','max:255'],
-        'items'=>['required'],
-        'price'=>['required','numeric'],
-    ]);
-
-          $newad = Advertisements::create([
-            'user_id'=>Auth::id(),
-            'body'=>$request->input('body'),
-            'title'=>$request->input('title'),
-            'valid'=>$request->input('valid'),
-        ]);
-
-
-          $newitem = new Items([
-            'name'=>$request->input('items'),
-            'price'=>$request->input('price'),
-
-        ]);
-
-
-       $newad->items()->save($newitem); //persist the data
-        return json_encode(array("statusCode"=>200));
-        return view('ads.myads');
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param Advertisements $advertisements
-     * @return Response
-     */
-    public function show(Advertisements $advertisements)
+    public function edit(Advertisement $advertisement)
     {
-
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Advertisements $advertisements
-     * @return Factory|Response|View
-     */
-    public function edit($id)
-    {
-        $advertisement = Advertisements::with('items')->find($id);
-
-
-
-
+        $advertisement->find('id');
         return view('ads.edit',[
-            'var'=>$advertisement,
+            'advertisements' => $advertisement,
         ]);
-
-
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param Advertisements $advertisements
-     * @return Response
-     */
-    public function update(Request $request,$id)
+    public function update(StoreAdvertisement $request, Advertisement $advertisement)
     {
-        $validatedData = $request->validate([
-            'body'=>['required','max:255'],
-            'title'=>['required','max:255'],
-            'items'=>['required'],
-            'price'=>['required','numeric'],
-        ]);
-
-        $advertisement = Advertisements::with('items')->find($id);
-        $advertisement->title=$request->input('title');
-        $advertisement->body=$request->input('body');
-        $advertisement->valid=$request->input('valid');
-        $advertisement->save();
-
-        $advertisement->items()->update([
-            'name'=>$request->input('items'),
-            'price'=>$request->input('price'),
-        ]);
-
-
-
-
+        try {
+            $advertisement->find('id');
+            $advertisement->update([
+                'title' => $request->input('title'),
+                'body' => $request->input('body'),
+                'valid' => $request->input('valid'),
+            ]);
+            $advertisement->item()->update([
+                'name' => $request->input('name'),
+                'price' => $request->input('price'),
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Advertisements $advertisements
-     * @return Response
-     */
-    public function destroy($id)
+    public function destroy(Advertisement $advertisement)
     {
-        $advertisements = Advertisements::find($id);
-        $advertisements->delete();
-        return response()->json(['message'=>'deleted']);
-
-        return view('ads.myads');
-
+        try {
+            $advertisement->find('id');
+            $advertisement->delete();
+            return view('ads.myads');
+        } catch (\Exception $e) {
+        }
     }
 
-    public function displaypersonal(Advertisements $advertisements)
-    {   $id = Auth::id();
-        $yourads = Advertisements::with('items')->where('user_id',$id)->get();
-        return view('ads.myads')->with([
-            'yourads' => $yourads,
-
-
-
-
-        ]);
-
-
-    }
-
-    public function buy(Request $request,$id)
+    public function displayPersonal()
     {
+        if (auth()->check()) {
+            $user = Auth::user();
+            $advertisements = $user->advertisements()->where('user_id', $user->id)->get();
+            return view('ads.myads')->with([
+                'advertisements' => $advertisements,
+            ]);
+        } else return view('/home');
+    }
 
-
-        $advertisement = Advertisements::with('items')->find($id);
-        $advertisement->user->notify(new ItemBought());
-        $advertisement->user_id=$request->input('user_id');
-        $advertisement->save();
-
+    public function buyItem(Request $request,Advertisement $advertisement)
+    {
+        try {
+            $advertisement->find('id');
+            $advertisement->update([
+                'valid' => 0,
+            ]);
+            $advertisement->item()->update([
+                'bought_by' => $request->input('bought_by'),
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ]);
+        }
 
     }
+
 }

@@ -13,13 +13,7 @@
                             </div>
                         @endif
                         {{--                        Looping through all bought items and displaying their name and price--}}
-                        @foreach($youritems as $colectieitems)
-                            <div class="w3-panel w3-pale-green">
-                                Item name: {{$colectieitems->items->name}} <br>
-                                Price: {{$colectieitems->items->price}}<br>
-                                Bought from: {{$colectieitems->title}}
-                            </div>
-                        @endforeach
+
                     </div>
                 </div>
             </div>

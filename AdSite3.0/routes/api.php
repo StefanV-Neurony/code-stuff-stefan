@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Advertisements;
-Use App\Items;
+use App\Advertisement;
+Use App\Item;
 /*
 |--------------------------------------------------------------------------
 | API Routes

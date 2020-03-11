@@ -19,11 +19,8 @@ class CreateAdvertisementsTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->boolean('valid');
-
             $table->timestamps();
-        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

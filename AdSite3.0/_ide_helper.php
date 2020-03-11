@@ -3203,7 +3203,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Retrieve multiple items from the cache by key.
          *
-         * Items not found in the cache will have a null value.
+         * Item not found in the cache will have a null value.
          *
          * @param array $keys
          * @return array

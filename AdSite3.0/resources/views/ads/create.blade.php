@@ -1,31 +1,38 @@
-<div class="row mt-5">
-    <div class="col-sm-8 offset-sm-2">
-        <div class="form-group">
-            {{csrf_field()}}
-            <div class="form-group">
-                <label for="title">Ad title:</label>
-                <input type="text" class="form-control" id="title" class="form-control" required>
+<!-- Starting of ajax contact form -->
+<div class="container">
+    <h2>Create Advertisement</h2>
+</div>
+<form id="createForm" method="post">
+
+    <!-- Starting of successful form message -->
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                Your advertisement was created successfully
             </div>
-            <div class="form-group">
-                <label for="items">Items:</label>
-                <input type="text" class="form-control" id="items" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="body">Description:</label>
-                <input type="text" class="form-control" id="body" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="">Price:</label>
-                <input type="text" class="form-control" id="price" class="form-control" required>
-            </div>
-            <div class="form-group " data-toggle="dropdown"> Would you like to make this Ad available right away?</div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="validCheck">
-                <label class="form-check-label" for="validCheck">
-                </label>
-            </div>
-            <button type="submit" class="w3-green w3-button" id="saveButton">Submit</button>
         </div>
     </div>
-</div>
+    <!-- Ending of successful form message -->
 
+    <!-- Element of the ajax contact form -->
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label for="title"></label><input name="title" type="text" id="title" class="form-control" placeholder="Title" >
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="name"></label><input name="name" type="text" id="name" class="form-control" placeholder="Items" >
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="price"></label><input name="price" id="price" type="text" class="form-control" placeholder="Price" >
+        </div>
+        <div class="col-12 form-group">
+            <label for="body"></label><input name="body" class="form-control" id="body" rows="3" placeholder="Description" >
+        </div>
+        <div class="col-12 form-group">
+            <label>Would you like to make this Ad available?</label>
+            <p><label for="publishAd"></label><input type="checkbox" id="publishAd" value=""></p></div>
+        <div class="col-12">
+            <label for="saveButton"></label><button name="create" id="saveButton" class="btn btn-success" value="Create Advertisement"></button>
+        </div>
+    </div>
+</form>

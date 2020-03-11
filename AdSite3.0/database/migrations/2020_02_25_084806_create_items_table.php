@@ -15,14 +15,13 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('advertisements_id');
+            $table->unsignedBigInteger('advertisement_id');
             $table->string('name');
-            $table->string('details');
-            $table->string('item_image')->nullable();
+            $table->string('image')->nullable();
+            $table->string('bought_by')->nullable();
             $table->decimal('price');
             $table->timestamps();
-
-            $table->foreign('advertisements_id')->references('id')->on('advertisements')->onDelete('cascade');
+            $table->foreign('advertisement_id')->references('id')->on('advertisements')->onDelete('cascade');
         });
     }
 

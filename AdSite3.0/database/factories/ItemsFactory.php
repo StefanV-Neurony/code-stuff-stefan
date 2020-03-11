@@ -2,11 +2,11 @@
 
 /** @var Factory $factory */
 
-use App\Items;
+use App\Item;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 
-$factory->define(Items::class, function (Faker $faker) {
+$factory->define(Item::class, function (Faker $faker) {
     return [
         //
     ];

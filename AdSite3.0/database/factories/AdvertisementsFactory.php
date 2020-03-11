@@ -2,11 +2,11 @@
 
 /** @var Factory $factory */
 
-use App\Advertisements;
+use App\Advertisement;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 
-$factory->define(Advertisements::class, function (Faker $faker) {
+$factory->define(Advertisement::class, function (Faker $faker) {
     return [
         //
     ];

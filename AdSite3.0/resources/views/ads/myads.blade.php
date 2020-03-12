@@ -18,8 +18,8 @@
                             @foreach($advertisements as $advertisement)
 
                             <div class="w3-panel w3-pale-green">
-                                <p> Titlu ad:{{$advertisement->title}} </p>
-                                <p>Descriere: {{$advertisement->body}}</p>
+                                <p> Advertisement Title: {{$advertisement->title}} </p>
+                                <p>Description: {{$advertisement->body}}</p>
                                 <p>Item: {{$advertisement->item->name}}</p>
                                 <p>Valid {{$advertisement->valid}}</p>
                                 <p>Price {{$advertisement->item->price}}</p>

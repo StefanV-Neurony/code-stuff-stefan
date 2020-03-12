@@ -5,7 +5,7 @@
 <form class="editForm" method="POST">
     <!-- Starting of successful form message -->
     <div class="row">
-        <div class="col-12">m
+        <div class="col-12">
 
             <div class="alert alert-success contact__msg" style="display: none" role="alert">
                 Your advertisement was  edited successfully
@@ -32,7 +32,7 @@
             <label>Would you like to make this Ad available?</label>
             <p><input type="checkbox" id="editedPublish" value=""></p></div>
         <div class="col-12">
-            <button name="update" id="updateButton" class="btn btn-success" value="Edit Advertisement"></button>
+            <button name="update" id="updateButton" class="btn btn-success">Edit Advertisement</button>
         </div>
     </div>
 </form>

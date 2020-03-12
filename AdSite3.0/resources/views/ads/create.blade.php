@@ -32,7 +32,7 @@
             <label>Would you like to make this Ad available?</label>
             <p><label for="publishAd"></label><input type="checkbox" id="publishAd" value=""></p></div>
         <div class="col-12">
-            <label for="saveButton"></label><button name="create" id="saveButton" class="btn btn-success" value="Create Advertisement"></button>
+            <label for="saveButton"></label><button name="create" id="saveButton" class="btn btn-success" >Create Advertisement</button>
         </div>
     </div>
 </form>

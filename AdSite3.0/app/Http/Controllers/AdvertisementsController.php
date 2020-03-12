@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Advertisement;
 use App\Http\Requests\StoreAdvertisement;
+use App\Notifications\ItemBought;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdvertisementsController extends Controller
 {
     public function index(Advertisement $advertisement)
-    {   $ads = $advertisement->where('valid','1')->get();
+    {
+        $ads = $advertisement->where('valid', '1')->get();
         $currentuser = Auth::user();
 
         return view('home')->with([
@@ -47,7 +49,7 @@ class AdvertisementsController extends Controller
     public function edit(Advertisement $advertisement)
     {
         $advertisement->find('id');
-        return view('ads.edit',[
+        return view('ads.edit', [
             'advertisements' => $advertisement,
         ]);
     }
@@ -65,6 +67,9 @@ class AdvertisementsController extends Controller
                 'name' => $request->input('name'),
                 'price' => $request->input('price'),
             ]);
+            return response()->json([
+                'status' => 'success',
+                'url' => route('ads.myads')]);
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'error',
@@ -78,8 +83,14 @@ class AdvertisementsController extends Controller
         try {
             $advertisement->find('id');
             $advertisement->delete();
-            return view('ads.myads');
+            return response()->json([
+                'status' => 'success',
+                'url' => route('ads.myads')]);
         } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ]);
         }
     }
 
@@ -94,23 +105,28 @@ class AdvertisementsController extends Controller
         } else return view('/home');
     }
 
-    public function buyItem(Request $request,Advertisement $advertisement)
+    public function buyItem(Request $request, Advertisement $advertisement)
     {
         try {
             $advertisement->find('id');
+            $user = $advertisement->user()->name;
             $advertisement->update([
                 'valid' => 0,
             ]);
-            $advertisement->item()->update([
+            $updatedad = $advertisement->item()->update([
                 'bought_by' => $request->input('bought_by'),
             ]);
+            if ($updatedad) {
+                $user->notify(new ItemBought()); //might use something else than Notifiable trait and i will probably also pass data from controller to notification later
+                return response()->json([
+                    'status' => 'success',
+                    'url' => route('ads.myads'),]);
+            }
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage(),
             ]);
         }
-
     }
-
 }

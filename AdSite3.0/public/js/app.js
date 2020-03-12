@@ -52748,19 +52748,25 @@ $(document).ready(function () {
     $.ajax({
       url: 'delete/' + id,
       type: 'DELETE',
-      success: function success(data) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
-          title: 'Deleted!',
-          text: 'Your advertisement has been deleted, clicking ok will redirect you to the main page',
-          icon: 'success'
-        }).then(function (result) {
-          if (result.value) {
-            location.reload(true);
-          }
-        });
-      },
-      complete: function complete() {
-        $(this).attr("disabled", false);
+      complete: function complete(data) {
+        if (data.status === 200) {
+          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+            title: 'Deleted!',
+            text: 'Your advertisement has been deleted, clicking ok will redirect you to the main page',
+            icon: 'success'
+          }).then(function (result) {
+            if (result.value) {
+              location.reload(true);
+            }
+          });
+        } else {
+          $(this).attr("disabled", false);
+          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+            title: 'Error!',
+            text: 'Your advertisement has not been deleted, an error has occurred',
+            icon: 'error'
+          });
+        }
       }
     });
     return false;
@@ -52805,17 +52811,29 @@ $(document).ready(function () {
         type: "POST",
         data: formdata,
         cache: false,
-        success: function success(dataResult) {
-          $('#editModal').modal('hide');
-          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
-            title: 'Ad edited!',
-            text: 'Your advertisement has been edited successfully. Click ok will redirect you to your ads.',
-            icon: 'success'
-          }).then(function (result) {
-            if (result.value) {
-              window.location = 'mine';
-            }
-          });
+        complete: function complete(data) {
+          console.log(data.status);
+
+          if (data.status === 200) {
+            $('#editModal').modal('hide');
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+              title: 'Ad edited!',
+              text: 'Your advertisement has been edited successfully. Click ok will redirect you to your ads.',
+              icon: 'success'
+            }).then(function (result) {
+              if (result.value) {
+                window.location = 'mine';
+              }
+            });
+          } else {
+            $('#editModal').modal('hide');
+            $(this).attr("disabled", false);
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+              title: 'Ad not edited!',
+              text: 'Your advertisement has not been edited successfully.',
+              icon: 'error'
+            });
+          }
         }
       });
     });
@@ -52844,25 +52862,27 @@ $(document).ready(function () {
       type: "POST",
       data: formdata,
       cache: false,
-      success: function success(data) {
-        console.log(data);
-        $('#createModal').modal('hide');
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
-          title: 'Ad Created!',
-          text: 'Your advertisement has created successfully. Click ok will redirect you to your ads.',
-          icon: 'success'
-        }).then(function (result) {
-          if (result.value) {
-            window.location = '/ads/mine';
-          }
-        });
-      },
-      complete: function complete() {
-        $(this).attr("disabled", false);
-      },
-      error: function error(xhr, status, _error) {
-        var errormessage = xhr.status + " :" + xhr.statusText;
-        alert('Error -' + errormessage);
+      complete: function complete(data) {
+        if (data.status === 200) {
+          $('#createModal').modal('hide');
+          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+            title: 'Ad created!',
+            text: 'Your advertisement has been created successfully. Click ok will redirect you to your ads.',
+            icon: 'success'
+          }).then(function (result) {
+            if (result.value) {
+              window.location = 'mine';
+            }
+          });
+        } else {
+          $('#createModal').modal('hide');
+          $(this).attr("disabled", false);
+          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+            title: 'Ad not created!',
+            text: 'Your advertisement has not been created successfully.',
+            icon: 'error'
+          });
+        }
       }
     });
     e.stopImmediatePropagation();
@@ -52877,7 +52897,26 @@ $(document).ready(function () {
       url: "ads/buy/" + id,
       type: 'POST',
       data: bought_by,
-      success: function success(data) {}
+      complete: function complete(data) {
+        if (data.status === 200) {
+          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+            title: 'Item bought!',
+            text: 'The item has been bought successfully. Click ok will redirect you to your items.',
+            icon: 'success'
+          }).then(function (result) {
+            if (result.value) {
+              window.location = 'mine/items';
+            }
+          });
+        } else {
+          $(this).attr("disabled", false);
+          sweetalert2__WEBPACK_IMPORTED_MODULE_0__["fire"]({
+            title: 'Item not bought!',
+            text: 'The item has not been bought. An error occurred.',
+            icon: 'error'
+          });
+        }
+      }
     });
   });
 });

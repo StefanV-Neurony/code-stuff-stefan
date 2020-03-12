@@ -25,7 +25,7 @@ class Advertisement extends Model
         public function getEditDataAttribute()
         {
             $data = $this->only(['id', 'title', 'body', 'valid', 'user_id']);
-            $data['item']=[
+            $data['item'] = [
                 'name' => $this->item->name,
                 'price' => $this->item->price,
                 'bought_by' => $this->item->bought_by,

@@ -98,7 +98,7 @@ class AdvertisementsController extends Controller
     {
         if (auth()->check()) {
             $user = Auth::user();
-            $advertisements = $user->advertisements()->where('user_id', $user->id)->get();
+            $advertisements = Advertisement::with('item')->where('bought_by',$user->name);
             return view('ads.myads')->with([
                 'advertisements' => $advertisements,
             ]);

@@ -52905,7 +52905,7 @@ $(document).ready(function () {
             icon: 'success'
           }).then(function (result) {
             if (result.value) {
-              window.location = 'mine/items';
+              window.location = '/ads/mine/items';
             }
           });
         } else {

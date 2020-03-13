@@ -166,7 +166,7 @@ $(document).ready(function () {
                         icon: 'success',
                     }).then((result) => {
                         if (result.value) {
-                            window.location = 'mine/items';
+                            window.location = '/ads/mine/items';
                         }
                     });
                 } else {

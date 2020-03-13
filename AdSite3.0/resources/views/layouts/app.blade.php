@@ -61,7 +61,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
-                           href="{{route('ads.boughtitems')}}">{{__('Your items - broken atm its wip')}}</a>
+                           href="{{route('ads.boughtitems')}}">{{__('Your items')}}</a>
 
                         @endauth
 
